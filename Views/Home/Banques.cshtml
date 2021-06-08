@@ -1,0 +1,39 @@
+@model IEnumerable<SampleMVC5_0.Models.Banque>
+
+@{
+    ViewData["Title"] = "Banques";
+}
+
+<h1>Banques</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ville)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ville)
+            </td>
+            <td>
+                <a asp-action="ClientsBanque" asp-route-id="@item.Id">Clients</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
